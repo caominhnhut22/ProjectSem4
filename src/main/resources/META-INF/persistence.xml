@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence           http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+  <persistence-unit name="prjS4_ProjectSem4_jar_0.0.1-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>prjS4.ProjectSem4.entities.Categories</class>
+    <class>prjS4.ProjectSem4.entities.Roles</class>
+    <class>prjS4.ProjectSem4.entities.SeatType</class>
+    <class>prjS4.ProjectSem4.entities.Accounts</class>
+    <class>prjS4.ProjectSem4.entities.Seats</class>
+    <class>prjS4.ProjectSem4.entities.Fares</class>
+    <class>prjS4.ProjectSem4.entities.CinemaType</class>
+    <class>prjS4.ProjectSem4.entities.Theaters</class>
+    <class>prjS4.ProjectSem4.entities.Comments</class>
+    <class>prjS4.ProjectSem4.entities.Invoices</class>
+    <class>prjS4.ProjectSem4.entities.Tickets</class>
+    <class>prjS4.ProjectSem4.entities.Access</class>
+    <class>prjS4.ProjectSem4.entities.Cinemas</class>
+    <class>prjS4.ProjectSem4.entities.Shifts</class>
+    <class>prjS4.ProjectSem4.entities.Films</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://SQL5094.site4now.net:1433;databaseName=db_aa7520_dbaa7520proj4;TrustServerCertificate=true"/>
+      <property name="javax.persistence.jdbc.user" value="db_aa7520_dbaa7520proj4_admin"/>
+      <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+      <property name="javax.persistence.jdbc.password" value="Ppy8q@sgfuvLZQ@"/>
+    </properties>
+  </persistence-unit>
+</persistence>

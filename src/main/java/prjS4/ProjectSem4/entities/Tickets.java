@@ -13,10 +13,6 @@ import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- *
- * @author VOCAO
- */
 @Entity
 @Table(name = "Tickets")
 @NamedQueries({

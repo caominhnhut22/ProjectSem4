@@ -17,6 +17,8 @@
     <class>prjS4.ProjectSem4.entities.Cinemas</class>
     <class>prjS4.ProjectSem4.entities.Shifts</class>
     <class>prjS4.ProjectSem4.entities.Films</class>
+    <class>prjS4.ProjectSem4.entities.Films_1</class>
+    <class>prjS4.ProjectSem4.entities.Categories_1</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://SQL5094.site4now.net:1433;databaseName=db_aa7520_dbaa7520proj4;TrustServerCertificate=true"/>
       <property name="javax.persistence.jdbc.user" value="db_aa7520_dbaa7520proj4_admin"/>

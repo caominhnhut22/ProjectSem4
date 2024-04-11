@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>prjS4</groupId>
-	<artifactId>ProjectSem4</artifactId>
+	<artifactId>ProjectSem4Server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ProjectSem4</name>
+	<name>ProjectSem4Server</name>
 	<description>Project Booking Cinema Ticket</description>
 	<properties>
 		<java.version>17</java.version>

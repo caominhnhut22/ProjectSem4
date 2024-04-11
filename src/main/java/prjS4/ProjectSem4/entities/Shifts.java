@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package prjS4.ProjectSem4.entities;
 
 import jakarta.persistence.Basic;
@@ -20,10 +16,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-/**
- *
- * @author VOCAO
- */
 @Entity
 @Table(name = "Shifts")
 @NamedQueries({
@@ -129,31 +121,6 @@ public class Shifts implements Serializable {
 
     public void setFilmId(Films filmId) {
         this.filmId = filmId;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (shiftId != null ? shiftId.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Shifts)) {
-            return false;
-        }
-        Shifts other = (Shifts) object;
-        if ((this.shiftId == null && other.shiftId != null) || (this.shiftId != null && !this.shiftId.equals(other.shiftId))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "prjS4.ProjectSem4.entities.Shifts[ shiftId=" + shiftId + " ]";
     }
     
 }

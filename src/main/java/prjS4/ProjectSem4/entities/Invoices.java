@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package prjS4.ProjectSem4.entities;
 
 import jakarta.persistence.Basic;
@@ -19,10 +15,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-/**
- *
- * @author VOCAO
- */
 @Entity
 @Table(name = "Invoices")
 @NamedQueries({
@@ -106,31 +98,6 @@ public class Invoices implements Serializable {
 
     public void setTicketId(Tickets ticketId) {
         this.ticketId = ticketId;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (invId != null ? invId.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Invoices)) {
-            return false;
-        }
-        Invoices other = (Invoices) object;
-        if ((this.invId == null && other.invId != null) || (this.invId != null && !this.invId.equals(other.invId))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "prjS4.ProjectSem4.entities.Invoices[ invId=" + invId + " ]";
     }
     
 }

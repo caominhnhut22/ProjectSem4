@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package prjS4.ProjectSem4.entities;
 
 import jakarta.persistence.Basic;
@@ -15,10 +11,6 @@ import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 
-/**
- *
- * @author VOCAO
- */
 @Entity
 @Table(name = "Access")
 @NamedQueries({
@@ -67,31 +59,6 @@ public class Access implements Serializable {
 
     public void setRoleId(Roles roleId) {
         this.roleId = roleId;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (acsId != null ? acsId.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Access)) {
-            return false;
-        }
-        Access other = (Access) object;
-        if ((this.acsId == null && other.acsId != null) || (this.acsId != null && !this.acsId.equals(other.acsId))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "prjS4.ProjectSem4.entities.Access[ acsId=" + acsId + " ]";
     }
     
 }

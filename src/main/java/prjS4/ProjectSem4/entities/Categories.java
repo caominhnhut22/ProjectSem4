@@ -1,6 +1,7 @@
 package prjS4.ProjectSem4.entities;
 
 import jakarta.persistence.Basic;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -34,7 +35,7 @@ public class Categories implements Serializable {
     @JoinTable(name = "FilmCategory", joinColumns = {
         @JoinColumn(name = "cate_id", referencedColumnName = "cate_id")}, inverseJoinColumns = {
         @JoinColumn(name = "film_id", referencedColumnName = "film_id")})
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Films> filmsList;
 
     public Categories() {

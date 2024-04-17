@@ -1,8 +1,10 @@
 package prjS4.ProjectSem4.entities;
 
 import jakarta.persistence.Basic;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -37,9 +39,9 @@ public class Cinemas implements Serializable {
     @JoinColumn(name = "theater_id", referencedColumnName = "theater_id")
     @ManyToOne
     private Theaters theaterId;
-    @OneToMany(mappedBy = "cinemaId")
+    @OneToMany(mappedBy = "cinemaId", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Seats> seatsList;
-    @OneToMany(mappedBy = "cinemaId")
+    @OneToMany(mappedBy = "cinemaId", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Shifts> shiftsList;
 
     public Cinemas() {

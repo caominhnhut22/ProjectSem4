@@ -1,8 +1,10 @@
 package prjS4.ProjectSem4.entities;
 
 import jakarta.persistence.Basic;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
@@ -26,7 +28,7 @@ public class Roles implements Serializable {
     private String roleId;
     @Column(name = "role_num")
     private Integer roleNum;
-    @OneToMany(mappedBy = "roleId")
+    @OneToMany(mappedBy = "roleId", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Access> accessList;
 
     public Roles() {

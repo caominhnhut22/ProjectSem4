@@ -1,8 +1,10 @@
 package prjS4.ProjectSem4.entities;
 
 import jakarta.persistence.Basic;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
@@ -29,7 +31,7 @@ public class CinemaType implements Serializable {
     private String ctypeName;
     @Column(name = "ctype_status")
     private Integer ctypeStatus;
-    @OneToMany(mappedBy = "ctypeId")
+    @OneToMany(mappedBy = "ctypeId", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Cinemas> cinemasList;
 
     public CinemaType() {

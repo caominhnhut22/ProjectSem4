@@ -1,8 +1,10 @@
 package prjS4.ProjectSem4.entities;
 
 import jakarta.persistence.Basic;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.NamedQueries;
@@ -70,9 +72,9 @@ public class Films implements Serializable {
     private Integer filmStatus;
     @ManyToMany(mappedBy = "filmsList")
     private List<Categories> categoriesList;
-    @OneToMany(mappedBy = "filmId")
+    @OneToMany(mappedBy = "filmId", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Comments> commentsList;
-    @OneToMany(mappedBy = "filmId")
+    @OneToMany(mappedBy = "filmId", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Shifts> shiftsList;
 
     public Films() {

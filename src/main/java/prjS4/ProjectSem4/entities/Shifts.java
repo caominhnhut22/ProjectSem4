@@ -1,8 +1,10 @@
 package prjS4.ProjectSem4.entities;
 
 import jakarta.persistence.Basic;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -43,7 +45,7 @@ public class Shifts implements Serializable {
     private Date shiftEnd;
     @Column(name = "shift_status")
     private Integer shiftStatus;
-    @OneToMany(mappedBy = "shiftId")
+    @OneToMany(mappedBy = "shiftId", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Tickets> ticketsList;
     @JoinColumn(name = "cinema_id", referencedColumnName = "cinema_id")
     @ManyToOne

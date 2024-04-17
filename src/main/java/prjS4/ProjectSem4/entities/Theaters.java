@@ -1,8 +1,10 @@
 package prjS4.ProjectSem4.entities;
 
 import jakarta.persistence.Basic;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
@@ -32,7 +34,7 @@ public class Theaters implements Serializable {
     private String theaterAddress;
     @Column(name = "theater_status")
     private Integer theaterStatus;
-    @OneToMany(mappedBy = "theaterId")
+    @OneToMany(mappedBy = "theaterId", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Cinemas> cinemasList;
 
     public Theaters() {

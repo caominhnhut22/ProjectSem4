@@ -40,8 +40,12 @@ public class Theaters implements Serializable {
     public Theaters() {
     }
 
-    public Theaters(String theaterId) {
+    public Theaters(String theaterId, String theaterName, String theaterAddress, Integer theaterStatus, List<Cinemas> cinemasList) {
         this.theaterId = theaterId;
+        this.theaterName = theaterName;
+        this.theaterAddress = theaterAddress;
+        this.theaterStatus = theaterStatus;
+        this.cinemasList = cinemasList;
     }
 
     public String getTheaterId() {

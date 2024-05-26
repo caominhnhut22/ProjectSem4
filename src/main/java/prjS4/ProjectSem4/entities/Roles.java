@@ -12,6 +12,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "Roles")
@@ -30,10 +31,11 @@ public class Roles implements Serializable {
     private Integer roleNum;
     @OneToMany(mappedBy = "roleId", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Access> accessList;
-
+    
     public Roles() {
+        this.roleId = UUID.randomUUID().toString();
     }
-
+    
     public Roles(String roleId) {
         this.roleId = roleId;
     }

@@ -1,13 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package prjS4.ProjectSem4.interfaces;
 
-/**
- *
- * @author VOCAO
- */
+import java.util.List;
+import prjS4.ProjectSem4.entities.Roles;
+
 public interface IRoleService {
+    
+    List<Roles> getAllRoles();
+    
+    Roles getRoleById(String id);
+    
+    Roles createRole(Roles role);
+    
+    Roles updateRole(String id, Roles role);
+    
+    boolean deleteRole(String id);
     
 }

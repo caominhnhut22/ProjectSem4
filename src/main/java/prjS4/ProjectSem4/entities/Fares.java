@@ -13,6 +13,7 @@ import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "Fares")
@@ -37,6 +38,7 @@ public class Fares implements Serializable {
     private List<Tickets> ticketsList;
 
     public Fares() {
+        this.fareId = UUID.randomUUID().toString();
     }
 
     public Fares(String fareId) {

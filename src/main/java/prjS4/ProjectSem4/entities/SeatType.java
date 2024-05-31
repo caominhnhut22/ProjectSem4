@@ -12,6 +12,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "SeatType")
@@ -32,6 +33,7 @@ public class SeatType implements Serializable {
     private List<Seats> seatsList;
 
     public SeatType() {
+        this.stypeId = UUID.randomUUID().toString();
     }
 
     public SeatType(String stypeId) {

@@ -14,6 +14,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "Cinemas")
@@ -45,6 +46,7 @@ public class Cinemas implements Serializable {
     private List<Shifts> shiftsList;
 
     public Cinemas() {
+        this.cinemaId = UUID.randomUUID().toString();
     }
 
     public Cinemas(String cinemaId) {

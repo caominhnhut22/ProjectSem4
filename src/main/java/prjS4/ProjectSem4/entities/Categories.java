@@ -13,6 +13,7 @@ import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "Categories")
@@ -39,6 +40,7 @@ public class Categories implements Serializable {
     private List<Films> filmsList;
 
     public Categories() {
+        this.cateId = UUID.randomUUID().toString();
     }
 
     public Categories(String cateId) {

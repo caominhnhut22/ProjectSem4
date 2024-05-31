@@ -14,6 +14,7 @@ import jakarta.persistence.TemporalType;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Table(name = "Invoices")
@@ -46,6 +47,7 @@ public class Invoices implements Serializable {
     private Tickets ticketId;
 
     public Invoices() {
+        this.invId = UUID.randomUUID().toString();
     }
 
     public Invoices(String invId) {

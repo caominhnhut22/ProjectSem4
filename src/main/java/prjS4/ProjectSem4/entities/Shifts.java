@@ -17,6 +17,7 @@ import jakarta.persistence.TemporalType;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "Shifts")
@@ -55,6 +56,7 @@ public class Shifts implements Serializable {
     private Films filmId;
 
     public Shifts() {
+        this.shiftId = UUID.randomUUID().toString();
     }
 
     public Shifts(String shiftId) {

@@ -14,6 +14,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "Tickets")
@@ -43,6 +44,7 @@ public class Tickets implements Serializable {
     private Shifts shiftId;
 
     public Tickets() {
+        this.ticketId = UUID.randomUUID().toString();
     }
 
     public Tickets(String ticketId) {

@@ -10,6 +10,7 @@ import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.util.UUID;
 
 @Entity
 @Table(name = "Comments")
@@ -37,6 +38,7 @@ public class Comments implements Serializable {
     private Films filmId;
 
     public Comments() {
+        this.cmtId = UUID.randomUUID().toString();
     }
 
     public Comments(String cmtId) {

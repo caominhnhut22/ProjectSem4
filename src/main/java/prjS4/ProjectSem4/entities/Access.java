@@ -10,6 +10,7 @@ import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.util.UUID;
 
 @Entity
 @Table(name = "Access")
@@ -29,8 +30,9 @@ public class Access implements Serializable {
     @JoinColumn(name = "role_id", referencedColumnName = "role_id")
     @ManyToOne
     private Roles roleId;
-
+    
     public Access() {
+        this.acsId = UUID.randomUUID().toString();
     }
 
     public Access(String acsId) {

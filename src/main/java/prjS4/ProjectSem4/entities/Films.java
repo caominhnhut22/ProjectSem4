@@ -16,6 +16,7 @@ import jakarta.persistence.TemporalType;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "Films")
@@ -78,6 +79,7 @@ public class Films implements Serializable {
     private List<Shifts> shiftsList;
 
     public Films() {
+        this.filmId = UUID.randomUUID().toString();
     }
 
     public Films(String filmId) {

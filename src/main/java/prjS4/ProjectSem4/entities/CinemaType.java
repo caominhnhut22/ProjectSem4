@@ -12,6 +12,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "CinemaType")
@@ -35,6 +36,7 @@ public class CinemaType implements Serializable {
     private List<Cinemas> cinemasList;
 
     public CinemaType() {
+        this.ctypeId = UUID.randomUUID().toString();
     }
 
     public CinemaType(String ctypeId) {

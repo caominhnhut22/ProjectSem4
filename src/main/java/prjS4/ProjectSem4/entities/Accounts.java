@@ -15,6 +15,7 @@ import jakarta.persistence.TemporalType;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "Accounts")
@@ -61,6 +62,7 @@ public class Accounts implements Serializable {
     private List<Invoices> invoicesList;
 
     public Accounts() {
+        this.accId = UUID.randomUUID().toString();
     }
 
     public Accounts(String accId) {

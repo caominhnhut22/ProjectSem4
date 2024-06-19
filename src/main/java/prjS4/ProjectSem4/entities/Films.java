@@ -1,21 +1,16 @@
 package prjS4.ProjectSem4.entities;
 
 import jakarta.persistence.Basic;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -34,7 +29,7 @@ import java.util.UUID;
     @NamedQuery(name = "Films.findByFilmFrom", query = "SELECT f FROM Films f WHERE f.filmFrom = :filmFrom"),
     @NamedQuery(name = "Films.findByFilmTo", query = "SELECT f FROM Films f WHERE f.filmTo = :filmTo"),
     @NamedQuery(name = "Films.findByFilmRating", query = "SELECT f FROM Films f WHERE f.filmRating = :filmRating"),
-    @NamedQuery(name = "Films.findByFilmageLimit", query = "SELECT f FROM Films f WHERE f.filmageLimit = :filmageLimit"),
+    @NamedQuery(name = "Films.findByAgeLimit", query = "SELECT f FROM Films f WHERE f.ageLimit = :ageLimit"),
     @NamedQuery(name = "Films.findByFilmStatus", query = "SELECT f FROM Films f WHERE f.filmStatus = :filmStatus")})
 public class Films implements Serializable {
 
@@ -67,17 +62,11 @@ public class Films implements Serializable {
     private Date filmTo;
     @Column(name = "film_rating")
     private Integer filmRating;
-    @Column(name = "film_ageLimit")
-    private Integer filmageLimit;
+    @Column(name = "age_limit")
+    private Integer ageLimit;
     @Column(name = "film_status")
     private Integer filmStatus;
-    @ManyToMany(mappedBy = "filmsList")
-    private List<Categories> categoriesList;
-    @OneToMany(mappedBy = "filmId", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private List<Comments> commentsList;
-    @OneToMany(mappedBy = "filmId", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private List<Shifts> shiftsList;
-
+    
     public Films() {
         this.filmId = UUID.randomUUID().toString();
     }
@@ -182,12 +171,12 @@ public class Films implements Serializable {
         this.filmRating = filmRating;
     }
 
-    public Integer getFilmageLimit() {
-        return filmageLimit;
+    public Integer getAgeLimit() {
+        return ageLimit;
     }
 
-    public void setFilmageLimit(Integer filmageLimit) {
-        this.filmageLimit = filmageLimit;
+    public void setAgeLimit(Integer ageLimit) {
+        this.ageLimit = ageLimit;
     }
 
     public Integer getFilmStatus() {
@@ -198,28 +187,29 @@ public class Films implements Serializable {
         this.filmStatus = filmStatus;
     }
 
-    public List<Categories> getCategoriesList() {
-        return categoriesList;
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (filmId != null ? filmId.hashCode() : 0);
+        return hash;
     }
 
-    public void setCategoriesList(List<Categories> categoriesList) {
-        this.categoriesList = categoriesList;
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Films)) {
+            return false;
+        }
+        Films other = (Films) object;
+        if ((this.filmId == null && other.filmId != null) || (this.filmId != null && !this.filmId.equals(other.filmId))) {
+            return false;
+        }
+        return true;
     }
 
-    public List<Comments> getCommentsList() {
-        return commentsList;
+    @Override
+    public String toString() {
+        return "prjS4.ProjectSem4.entities.Films[ filmId=" + filmId + " ]";
     }
-
-    public void setCommentsList(List<Comments> commentsList) {
-        this.commentsList = commentsList;
-    }
-
-    public List<Shifts> getShiftsList() {
-        return shiftsList;
-    }
-
-    public void setShiftsList(List<Shifts> shiftsList) {
-        this.shiftsList = shiftsList;
-    }
-
+    
 }

@@ -42,12 +42,8 @@ public class Theaters implements Serializable {
         this.theaterId = UUID.randomUUID().toString();
     }
     
-    public Theaters(String theaterId, String theaterName, String theaterAddress, Integer theaterStatus, List<Cinemas> cinemasList) {
+    public Theaters(String theaterId) {
         this.theaterId = theaterId;
-        this.theaterName = theaterName;
-        this.theaterAddress = theaterAddress;
-        this.theaterStatus = theaterStatus;
-        this.cinemasList = cinemasList;
     }
 
     public String getTheaterId() {

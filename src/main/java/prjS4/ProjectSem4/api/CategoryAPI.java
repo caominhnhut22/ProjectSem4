@@ -3,6 +3,7 @@ package prjS4.ProjectSem4.api;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +16,7 @@ import prjS4.ProjectSem4.entities.Categories;
 import prjS4.ProjectSem4.interfaces.ICategoryService;
 
 @RestController
-@RequestMapping("/url/categories")
+@RequestMapping("/api/categories")
 public class CategoryAPI {
     
     @Autowired
@@ -26,7 +27,7 @@ public class CategoryAPI {
         return categoryService.getAllCategories();
     }
     
-        @GetMapping("/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Categories> getCategoryById(@PathVariable String id) {
         Categories category = categoryService.getCategoryById(id);
         if (category != null) {
@@ -37,11 +38,13 @@ public class CategoryAPI {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('SUPER_ADMIN') or hasRole('ADMIN')")
     public Categories createCategory(@RequestBody Categories category) {
         return categoryService.createCategory(category);
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('SUPER_ADMIN') or hasRole('ADMIN')")
     public ResponseEntity<Categories> updateCategory(@PathVariable String id, @RequestBody Categories categoryDetails) {
         Categories updatedRole = categoryService.updateCategory(id, categoryDetails);
         if (updatedRole != null) {
@@ -52,6 +55,7 @@ public class CategoryAPI {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('SUPER_ADMIN') or hasRole('ADMIN')")
     public ResponseEntity<Void> deleteCategory(@PathVariable String id) {
         boolean isDeleted = categoryService.deleteCategory(id);
         if (isDeleted) {
@@ -60,5 +64,4 @@ public class CategoryAPI {
             return ResponseEntity.notFound().build();
         }
     }
-    
 }

@@ -4,6 +4,7 @@ import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
@@ -36,8 +37,8 @@ public class Categories implements Serializable {
     @JoinTable(name = "FilmCategory", joinColumns = {
         @JoinColumn(name = "cate_id", referencedColumnName = "cate_id")}, inverseJoinColumns = {
         @JoinColumn(name = "film_id", referencedColumnName = "film_id")})
-    @ManyToMany(cascade = CascadeType.ALL)
-    private List<Films> filmsList;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Films> films;
 
     public Categories() {
         this.cateId = UUID.randomUUID().toString();
@@ -70,13 +71,13 @@ public class Categories implements Serializable {
     public void setCateStatus(Integer cateStatus) {
         this.cateStatus = cateStatus;
     }
-
-    public List<Films> getFilmsList() {
-        return filmsList;
+    
+    public List<Films> getFilms() {
+        return films;
     }
 
-    public void setFilmsList(List<Films> filmsList) {
-        this.filmsList = filmsList;
+    public void setFilms(List<Films> films) {
+        this.films = films;
     }
 
 }

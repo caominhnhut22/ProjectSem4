@@ -49,10 +49,10 @@ public class Shifts implements Serializable {
     @OneToMany(mappedBy = "shiftId", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Tickets> ticketsList;
     @JoinColumn(name = "cinema_id", referencedColumnName = "cinema_id")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Cinemas cinemaId;
     @JoinColumn(name = "film_id", referencedColumnName = "film_id")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Films filmId;
 
     public Shifts() {

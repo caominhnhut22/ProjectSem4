@@ -32,7 +32,7 @@ public class CinemaType implements Serializable {
     private String ctypeName;
     @Column(name = "ctype_status")
     private Integer ctypeStatus;
-    @OneToMany(mappedBy = "ctypeId", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "ctypeId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Cinemas> cinemasList;
 
     public CinemaType() {

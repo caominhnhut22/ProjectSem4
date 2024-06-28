@@ -56,7 +56,7 @@ public class Accounts implements Serializable {
     private Integer userStatus;
     @OneToMany(mappedBy = "accId", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Comments> commentsList;
-    @OneToMany(mappedBy = "accId", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "accId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Access> accessList;
     @OneToMany(mappedBy = "accId", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Invoices> invoicesList;

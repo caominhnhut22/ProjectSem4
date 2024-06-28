@@ -3,6 +3,7 @@ package prjS4.ProjectSem4.entities;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -40,10 +41,10 @@ public class Invoices implements Serializable {
     @Column(name = "inv_status")
     private Integer invStatus;
     @JoinColumn(name = "acc_id", referencedColumnName = "acc_id")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Accounts accId;
     @JoinColumn(name = "ticket_id", referencedColumnName = "ticket_id")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Tickets ticketId;
 
     public Invoices() {

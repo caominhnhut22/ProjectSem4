@@ -35,10 +35,10 @@ public class Cinemas implements Serializable {
     @Column(name = "cinema_status")
     private Integer cinemaStatus;
     @JoinColumn(name = "ctype_id", referencedColumnName = "ctype_id")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private CinemaType ctypeId;
     @JoinColumn(name = "theater_id", referencedColumnName = "theater_id")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Theaters theaterId;
     @OneToMany(mappedBy = "cinemaId", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Seats> seatsList;

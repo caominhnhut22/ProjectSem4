@@ -4,6 +4,9 @@ import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
@@ -11,6 +14,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -66,6 +70,13 @@ public class Films implements Serializable {
     private Integer ageLimit;
     @Column(name = "film_status")
     private Integer filmStatus;
+    @ManyToMany
+    @JoinTable(
+        name = "FilmCategory",
+        joinColumns = @JoinColumn(name = "film_id"),
+        inverseJoinColumns = @JoinColumn(name = "cate_id")
+    )
+    private List<Categories> categories;
     
     public Films() {
         this.filmId = UUID.randomUUID().toString();
@@ -186,30 +197,13 @@ public class Films implements Serializable {
     public void setFilmStatus(Integer filmStatus) {
         this.filmStatus = filmStatus;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (filmId != null ? filmId.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Films)) {
-            return false;
-        }
-        Films other = (Films) object;
-        if ((this.filmId == null && other.filmId != null) || (this.filmId != null && !this.filmId.equals(other.filmId))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "prjS4.ProjectSem4.entities.Films[ filmId=" + filmId + " ]";
-    }
     
+    public List<Categories> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Categories> categories) {
+        this.categories = categories;
+    }
+
 }

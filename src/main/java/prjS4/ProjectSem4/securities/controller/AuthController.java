@@ -1,12 +1,11 @@
 package prjS4.ProjectSem4.securities.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import prjS4.ProjectSem4.entities.Access;
@@ -16,8 +15,6 @@ import prjS4.ProjectSem4.securities.dto.LoginRequest;
 import prjS4.ProjectSem4.securities.dto.RegisterRequest;
 import prjS4.ProjectSem4.securities.jwt.JwtResponse;
 import prjS4.ProjectSem4.securities.jwt.JwtService;
-import prjS4.ProjectSem4.securities.service.CustomUserDetails;
-import prjS4.ProjectSem4.securities.service.CustomUserDetailsService;
 import prjS4.ProjectSem4.securities.service.IAccessService;
 import prjS4.ProjectSem4.securities.service.IAccountService;
 import prjS4.ProjectSem4.securities.service.IRoleService;
@@ -45,15 +42,13 @@ public class AuthController {
     private PasswordEncoder passwordEncoder;
     
     @PostMapping("/register")
-    public String register(@RequestBody RegisterRequest registerRequest) {
-//        if (accountService.findByEmail(registerRequest.getEmail()).isPresent()) {
-//            return "Email đã được sử dụng";
-//        }
+    public String register(@Valid @RequestBody RegisterRequest registerRequest) {
+        // Log the incoming request
+        System.out.println("Incoming register request: " + registerRequest);
 
         Accounts newAccount = new Accounts();
-        newAccount.setUserName(registerRequest.getUsername());
-//        newAccount.setUserEmail(registerRequest.getEmail());
-        String encodedPassword = passwordEncoder.encode(registerRequest.getPassword());
+        newAccount.setUserName(registerRequest.getUserName());
+        String encodedPassword = passwordEncoder.encode(registerRequest.getUserPassword());
         newAccount.setUserPassword(encodedPassword); // Encode password
         newAccount.setUserStatus(1);
 
@@ -64,7 +59,7 @@ public class AuthController {
 
         Access access = new Access();
         access.setAccId(newAccount);
-        access.setRoleId(roleService.findByRoleNum(3));
+        access.setRoleId(roleService.findByRoleNum(5));
         accessService.save(access);
 
         return "Đăng ký tài khoản thành công";
@@ -126,6 +121,7 @@ public class AuthController {
 
         return new JwtResponse(jwt);
     }
+    
 }
 
 

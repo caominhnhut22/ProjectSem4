@@ -1,7 +1,7 @@
 package prjS4.ProjectSem4.dto;
 
+import jakarta.mail.Multipart;
 import java.util.Date;
-import org.springframework.web.multipart.MultipartFile;
 
 public class FilmDTO {
     
@@ -13,7 +13,7 @@ public class FilmDTO {
 
     private Integer filmDuration;
 
-    private MultipartFile filmPoster;
+    private Multipart filmPoster;
 
     private String filmLanguage;
 
@@ -35,7 +35,7 @@ public class FilmDTO {
 
     public FilmDTO () {}
 
-    public FilmDTO(String filmId, String filmName, String filmContent, Integer filmDuration, MultipartFile filmPoster, String filmLanguage, String filmDirector, String filmActors, String filmTrailer, Date filmFrom, Date filmTo, Integer filmRating, Integer ageLimit, Integer filmStatus) {
+    public FilmDTO(String filmId, String filmName, String filmContent, Integer filmDuration, Multipart filmPoster, String filmLanguage, String filmDirector, String filmActors, String filmTrailer, Date filmFrom, Date filmTo, Integer filmRating, Integer ageLimit, Integer filmStatus) {
         this.filmId = filmId;
         this.filmName = filmName;
         this.filmContent = filmContent;
@@ -84,11 +84,11 @@ public class FilmDTO {
         this.filmDuration = filmDuration;
     }
 
-    public MultipartFile getFilmPoster() {
+    public Multipart getFilmPoster() {
         return filmPoster;
     }
 
-    public void setFilmPoster(MultipartFile filmPoster) {
+    public void setFilmPoster(Multipart filmPoster) {
         this.filmPoster = filmPoster;
     }
 
@@ -163,7 +163,5 @@ public class FilmDTO {
     public void setFilmStatus(Integer filmStatus) {
         this.filmStatus = filmStatus;
     }
-    
-    
     
 }

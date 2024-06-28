@@ -34,13 +34,13 @@ public class Tickets implements Serializable {
     @OneToMany(mappedBy = "ticketId", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Invoices> invoicesList;
     @JoinColumn(name = "fare_id", referencedColumnName = "fare_id")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Fares fareId;
     @JoinColumn(name = "seat_id", referencedColumnName = "seat_id")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Seats seatId;
     @JoinColumn(name = "shift_id", referencedColumnName = "shift_id")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Shifts shiftId;
 
     public Tickets() {

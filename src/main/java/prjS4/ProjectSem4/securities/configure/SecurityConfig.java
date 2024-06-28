@@ -3,6 +3,7 @@ package prjS4.ProjectSem4.securities.configure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -49,6 +50,14 @@ public class SecurityConfig {
             .authorizeHttpRequests(authorizeRequestsConfigurer ->
                 authorizeRequestsConfigurer
                     .requestMatchers("/api/auth/**").permitAll()
+                        
+                    .requestMatchers("/api/films/**").permitAll()
+                    .requestMatchers("/api/categories/**").permitAll()
+                    .requestMatchers("/api/booking/**").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/management/**").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/tickets/**").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/cinemas/**").permitAll()
+                        
                     .requestMatchers("/api/super-admin/**").hasRole("SUPER_ADMIN")
                     .requestMatchers("/api/admin/**").hasRole("ADMIN")
                     .requestMatchers("/api/management/**").hasRole("MANAGEMENT_EMPLOYEE")

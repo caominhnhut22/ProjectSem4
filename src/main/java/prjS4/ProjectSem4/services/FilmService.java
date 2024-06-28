@@ -49,12 +49,12 @@ public class FilmService implements IFilmService {
 
     @Override
     public List<Films> getFilmsByDirector(String directorName) {
-        return filmRepository.findByDirectorName(directorName);
+        return filmRepository.findByFilmDirector(directorName);
     }
 
     @Override
     public List<Films> getFilmsByActor(String actorName) {
-        return filmRepository.findByActorName(actorName);
+        return filmRepository.findByFilmActors(actorName);
     }
     
 }

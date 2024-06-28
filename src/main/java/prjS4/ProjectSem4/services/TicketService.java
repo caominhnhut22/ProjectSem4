@@ -13,7 +13,7 @@ public class TicketService implements ITicketService {
     @Autowired
     private TicketRepository ticketRepository;
 
-     @Override
+    @Override
     public List<Tickets> getAllTickets() {
         return ticketRepository.findAll();
     }
@@ -52,17 +52,17 @@ public class TicketService implements ITicketService {
 
     @Override
     public List<Tickets> getTicketsByShift(String shiftId) {
-        return ticketRepository.findByShiftId(shiftId);
+        return ticketRepository.findByShiftId_ShiftId(shiftId);
     }
 
     @Override
     public List<Tickets> getTicketsByFare(String fareId) {
-        return ticketRepository.findByFareId(fareId);
+        return ticketRepository.findByFareId_FareId(fareId);
     }
 
     @Override
     public List<Tickets> getTicketsBySeat(String seatId) {
-        return ticketRepository.findBySeatId(seatId);
+        return ticketRepository.findBySeatId_SeatId(seatId);
     }
     
 }
